@@ -1,3 +1,6 @@
+import eventlet
+eventlet.monkey_patch()
+
 import yaml
 import collections
 
