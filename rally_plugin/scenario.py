@@ -45,7 +45,7 @@ class RabbitScenario(scenario.Scenario):
         client = self._get_client()
         msg = "test message"
         rep = client.call({}, 'info', message=msg)
-        LOG.info("Reply received in client %s" % rep)
+        #LOG.info("Reply received in client %s" % rep)
 
     @scenario.configure()
     def send_messages(self, num_messages):
@@ -57,8 +57,8 @@ class RabbitScenario(scenario.Scenario):
             msg = ''.join(
                 random.choice(string.lowercase) for x in range(length))
             try:
-                rep = client.call({}, 'info', message=msg)
-                LOG.info("Reply received in client %s" % rep)
+                client.call({}, 'info', message=msg)
+                #LOG.info("Reply received in client %s" % rep)
             except Exception as e:
                 LOG.error(e.message)
                 errors += 1
